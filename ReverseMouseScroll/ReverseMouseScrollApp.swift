@@ -1,17 +1,25 @@
-//
-//  ReverseMouseScrollApp.swift
-//  ReverseMouseScroll
-//
-//  Created by Krish Meghani on 5/18/24.
-//
-
 import SwiftUI
 
 @main
 struct ReverseMouseScrollApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+    init(){
+        let reverseMouse:Bool = UserDefaults.standard.bool(forKey: "reverseMouseScrolling")
+        if(!manageEventTap(activated: reverseMouse)){
+            UserDefaults.standard.set(false, forKey: "reverseMouseScrolling")
         }
+        
     }
+    var body: some Scene {
+        MenuBarExtra("main", systemImage: "scroll") {
+            ContentView()
+        }.menuBarExtraStyle(.window)
+    }
+}
+public func manageEventTap(activated:Bool)->Bool{
+    if activated{
+        return startEventTap()
+    }else{
+        stopEventTap()
+    }
+    return true
 }

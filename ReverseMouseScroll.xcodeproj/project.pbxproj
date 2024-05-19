@@ -11,6 +11,7 @@
 		6F9BF1C92BF9CD7E00E4203B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9BF1C82BF9CD7E00E4203B /* ContentView.swift */; };
 		6F9BF1CB2BF9CD8000E4203B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9BF1CA2BF9CD8000E4203B /* Assets.xcassets */; };
 		6F9BF1CE2BF9CD8000E4203B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9BF1CD2BF9CD8000E4203B /* Preview Assets.xcassets */; };
+		6F9BF1D72BF9CDB400E4203B /* reverseMouseScrollLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9BF1D62BF9CDB400E4203B /* reverseMouseScrollLogic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,8 @@
 		6F9BF1CA2BF9CD8000E4203B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F9BF1CD2BF9CD8000E4203B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F9BF1CF2BF9CD8000E4203B /* ReverseMouseScroll.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReverseMouseScroll.entitlements; sourceTree = "<group>"; };
+		6F9BF1D52BF9CDB300E4203B /* ReverseMouseScroll-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReverseMouseScroll-Bridging-Header.h"; sourceTree = "<group>"; };
+		6F9BF1D62BF9CDB400E4203B /* reverseMouseScrollLogic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = reverseMouseScrollLogic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 				6F9BF1CA2BF9CD8000E4203B /* Assets.xcassets */,
 				6F9BF1CF2BF9CD8000E4203B /* ReverseMouseScroll.entitlements */,
 				6F9BF1CC2BF9CD8000E4203B /* Preview Content */,
+				6F9BF1D62BF9CDB400E4203B /* reverseMouseScrollLogic.m */,
+				6F9BF1D52BF9CDB300E4203B /* ReverseMouseScroll-Bridging-Header.h */,
 			);
 			path = ReverseMouseScroll;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				TargetAttributes = {
 					6F9BF1C22BF9CD7E00E4203B = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -141,6 +147,7 @@
 			files = (
 				6F9BF1C92BF9CD7E00E4203B /* ContentView.swift in Sources */,
 				6F9BF1C72BF9CD7E00E4203B /* ReverseMouseScrollApp.swift in Sources */,
+				6F9BF1D72BF9CDB400E4203B /* reverseMouseScrollLogic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +189,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -245,6 +253,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -270,13 +279,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ReverseMouseScroll/ReverseMouseScroll.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReverseMouseScroll/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Need permissions for event scrolling direction reversal";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -285,7 +302,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ksh35.ReverseMouseScroll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReverseMouseScroll/ReverseMouseScroll-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -295,13 +315,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ReverseMouseScroll/ReverseMouseScroll.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReverseMouseScroll/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Need permissions for event scrolling direction reversal";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -310,7 +338,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ksh35.ReverseMouseScroll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReverseMouseScroll/ReverseMouseScroll-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
